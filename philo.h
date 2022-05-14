@@ -6,7 +6,7 @@
 /*   By: hed-diou <hed-diou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/26 17:16:03 by hed-diou          #+#    #+#             */
-/*   Updated: 2022/04/02 16:18:26 by hed-diou         ###   ########.fr       */
+/*   Updated: 2022/05/14 11:49:39 by hed-diou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@
 typedef struct s_list{
 	pthread_mutex_t	*left;
 	pthread_mutex_t	*right;
-	pthread_mutex_t	msg;
+	pthread_mutex_t	*msg;
 	pthread_t		philosopher;
 	long long		start_time;
 	int				is_death;
@@ -49,5 +49,6 @@ void		thinking(t_philo *philosof);
 void		sleeping(t_philo *philosof);
 void		eating(t_philo *philosof);
 void		*routine(void *forchita);
-
+int			death_check(t_table	*table, int i, int j);
+void		struct_init(int i, char **av, t_table *table, pthread_mutex_t *msg);
 #endif
